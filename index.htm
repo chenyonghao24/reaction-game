@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-TW"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;霸氣防禦戰 3.0 (精準格擋版)&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: '微軟正黑體', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #1a1a1a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #FFD700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 4px #000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.intro-p {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.highlight { color: #FFD700; font-weight: bold; }</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#game-info {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-around;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 640px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto 20px auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: rgba(0,0,0,0.6);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #444;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hp-text { color: #ff4d4d; font-weight: bold; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.score-text { color: #4dff4d; font-weight: bold; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#game-area {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 640px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 480px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px solid #555;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 25px rgba(0,0,0,0.9);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 視訊鏡頭畫面 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#webcam-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.65;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#webcam-container canvas {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100% !important;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100% !important;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>object-fit: cover;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 攻擊特效 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.attack {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 50px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: fall 1.6s linear forwards;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#attack-left { left: 15%; color: #ff3333; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#attack-right { right: 15%; color: #ff3333; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#attack-double {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 50%;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(-50%);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #33ccff;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 70px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: fall-center 1.6s linear forwards;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fall {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0% { top: -100px; opacity: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>15% { opacity: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>100% { top: 400px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fall-center {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0% { top: -120px; opacity: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>15% { opacity: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>100% { top: 380px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#status-message {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 40%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translate(-50%, -50%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 42px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #FFD700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 10;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 90%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px 35px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 22px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #FFD700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 10px rgba(255,215,0,0.3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button:hover { background-color: #ffcc00; transform: scale(1.05); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 偵測標籤容器（符合顯示辨識結果與信心分數的要求） */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#label-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #bbb;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.label-item {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: rgba(255,255,255,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 5px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #444;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.flash-red { background-color: #660000 !important; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.flash-green { background-color: #004d00 !important; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;霸氣防禦戰 3.0&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 符合要求：說明怎麼進行遊戲或操作 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="intro-p"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>遊戲說明：請在攻擊到底部前做出對應防禦：&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>左側攻擊 ➔ &lt;span class="highlight"&gt;【左手掌向前】&lt;/span&gt; |<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>右側攻擊 ➔ &lt;span class="highlight"&gt;【右手背向前】&lt;/span&gt; |<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>大型攻擊 ➔ &lt;span class="highlight"&gt;【雙手握拳】&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="game-info"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;生命值 HP: &lt;span id="hp-display" class="hp-text"&gt;100&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;分數 Score: &lt;span id="score-display" class="score-text"&gt;0&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 符合要求：頁面顯示攝影機畫面 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="game-area"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="webcam-container"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="attack-left" class="attack"&gt;🔥 左側火球&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="attack-right" class="attack"&gt;🔥 右側火球&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="attack-double" class="attack"&gt;❄️ 大型冰錐&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="status-message"&gt;請點擊下方按鈕載入防禦系統&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button id="start-btn" type="button" onclick="init()"&gt;啟動防禦系統 (Start)&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- 符合要求：目前辨識結果與信心分數 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="label-container"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"&gt;&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const URL = "https://teachablemachine.withgoogle.com/models/S4-W6AOEH/";</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const CLASS_IDLE = “idle”; <span class="Apple-converted-space">      </span>// 平常沒動作的名稱</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const CLASS_LEFT = “left”; <span class="Apple-converted-space">      </span>// 左手正手掌檔的名稱</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const CLASS_RIGHT = “right”; <span class="Apple-converted-space">    </span>// 右手手背檔的名稱</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const CLASS_DOUBLE = “both”; <span class="Apple-converted-space">  </span>// 雙手握拳的名稱</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ==========================================</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let model, webcam, labelContainer, maxPredictions;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let isGameRunning = false;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let hp = 100;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let score = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentAttackType = "none";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let hitCheckTimer = null;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 初始化與載入模型</p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function init() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("start-btn").style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("status-message").innerText = "正在載入 AI 模型...";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const modelURL = URL + "model.json";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const metadataURL = URL + "metadata.json";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 載入對應函式庫與模型[cite: 2]</p>
+<p class="p1"><span class="Apple-converted-space">                </span>model = await tmImage.load(modelURL, metadataURL);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>maxPredictions = model.getTotalClasses();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const flip = true;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>webcam = new tmImage.Webcam(640, 480, flip);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>await webcam.setup();<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>await webcam.play();</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("webcam-container").appendChild(webcam.canvas);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>labelContainer = document.getElementById("label-container");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>labelContainer.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>for (let i = 0; i &lt; maxPredictions; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>let div = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>div.className = "label-item";</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>labelContainer.appendChild(div);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("status-message").innerText = "系統就緒！3 秒後開始攻擊...";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>setTimeout(startGame, 3000);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>window.requestAnimationFrame(loop);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.error(error);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("status-message").innerText = "載入失敗，請確認鏡頭權限！";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("start-btn").style.display = "inline-block";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 預測迴圈[cite: 2]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function loop() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>webcam.update();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>await predict();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (hp &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>window.requestAnimationFrame(loop);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 進行預測與互動邏輯</p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function predict() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 將畫面丟進模型預測[cite: 2]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const prediction = await model.predict(webcam.canvas);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let currentPose = "無偵測";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let highestProb = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; maxPredictions; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const className = prediction[i].className;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const probability = prediction[i].probability;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>labelContainer.childNodes[i].innerHTML = `${className}: ${(probability * 100).toFixed(0)}%`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (probability &gt; highestProb) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>highestProb = probability;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>currentPose = className;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 依辨識結果觸發畫面變化 (大於 0.8 才判定成功)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (isGameRunning &amp;&amp; highestProb &gt; 0.8) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (currentAttackType === "left" &amp;&amp; currentPose === CLASS_LEFT) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>defendSuccess("🛡️ 左手掌格擋成功！+10分");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>else if (currentAttackType === "right" &amp;&amp; currentPose === CLASS_RIGHT) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>defendSuccess("🛡️ 右手背格擋成功！+10分");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>else if (currentAttackType === "double" &amp;&amp; currentPose === CLASS_DOUBLE) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>defendSuccess("💎 雙手握拳防禦！+15分");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function startGame() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>isGameRunning = true;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>hp = 100;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>score = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("status-message").innerText = "";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>updateStats();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>spawnAttack();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function spawnAttack() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (hp &lt;= 0) return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const rand = Math.floor(Math.random() * 3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let attackElement = null;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (rand === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentAttackType = "left";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>attackElement = document.getElementById("attack-left");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else if (rand === 1) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentAttackType = "right";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>attackElement = document.getElementById("attack-right");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentAttackType = "double";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>attackElement = document.getElementById("attack-double");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>attackElement.style.display = "block";</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>hitCheckTimer = setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (currentAttackType !== "none") {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>takeDamage();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>attackElement.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, 1500);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function defendSuccess(msg) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>clearTimeout(hitCheckTimer);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentAttackType = "none";</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('.attack').forEach(el =&gt; el.style.display = 'none');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (msg.includes("雙手")) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>score += 15;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>score += 10;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>updateStats();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("status-message").innerText = msg;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 觸發畫面變化：換背景色</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.classList.add('flash-green');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; document.body.classList.remove('flash-green'), 250);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("status-message").innerText = "";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>spawnAttack();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, 1000);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function takeDamage() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentAttackType = "none";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>hp -= 20;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>updateStats();</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("status-message").innerText = "💥 沒擋住！受到傷害 -20";</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 觸發畫面變化：換背景色</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.classList.add('flash-red');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; document.body.classList.remove('flash-red'), 250);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (hp &lt;= 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gameOver();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>document.getElementById("status-message").innerText = "";</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>spawnAttack();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}, 1500);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function updateStats() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("hp-display").innerText = hp;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("score-display").innerText = score;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function gameOver() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>isGameRunning = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("status-message").innerText = `💀 護盾崩潰！\n最終分數：${score} 分`;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const btn = document.getElementById("start-btn");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.style.display = "inline-block";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.innerText = "重新挑戰 (Restart)";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
